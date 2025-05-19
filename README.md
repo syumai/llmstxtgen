@@ -19,6 +19,11 @@ go install github.com/syumai/llmstxtgen/cmd/llmstxtgen@latest
 curl http://localhost:3000/sitemap.xml | llmstxtgen -mode=full > llms-full.txt
 ```
 
+## Options
+
+* -mode: generate mode: full
+* -sleep: sleep time (milli seconds, default: 100)
+
 ## Author
 
 syumai

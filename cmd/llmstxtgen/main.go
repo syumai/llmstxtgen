@@ -17,7 +17,10 @@ const (
 	ModeAll    Mode = "all"
 )
 
-var mode = flag.String("mode", "normal", "generate mode: normal, full, all")
+var (
+	mode      = flag.String("mode", "normal", "generate mode: normal, full, all")
+	sleepTime = flag.Int("sleep", llmstxtgen.DefaultSleepTimeMilliSeconds, "sleep time (milli seconds)")
+)
 
 func main() {
 	flag.Parse()
@@ -26,7 +29,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	reader, err := llmstxtgen.Full(os.Stdin)
+	reader, err := llmstxtgen.Full(os.Stdin, *sleepTime)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to generate txt: %v", err)
 		os.Exit(1)

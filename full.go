@@ -4,10 +4,13 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"time"
 
 	"github.com/mackee/go-readability"
 	"github.com/snabb/sitemap"
 )
+
+var DefaultSleepTimeMilliSeconds = 100
 
 func parseContent(body []byte) (*readability.ReadabilityArticle, error) {
 	options := readability.DefaultOptions()
@@ -18,7 +21,8 @@ func parseContent(body []byte) (*readability.ReadabilityArticle, error) {
 	return &article, nil
 }
 
-func Full(sitemapReader io.Reader) (io.Reader, error) {
+func Full(sitemapReader io.Reader, sleepTimeMilliSeconds int) (io.Reader, error) {
+	sleepDuration := time.Duration(sleepTimeMilliSeconds) * time.Millisecond
 	index := sitemap.NewSitemapIndex()
 	_, err := index.ReadFrom(sitemapReader)
 	if err != nil {
@@ -27,6 +31,7 @@ func Full(sitemapReader io.Reader) (io.Reader, error) {
 	sitemaps := make([]*sitemap.Sitemap, len(index.URLs))
 	for i, u := range index.URLs {
 		m := sitemap.New()
+		time.Sleep(sleepDuration)
 		r, err := http.Get(u.Loc)
 		if err != nil {
 			return nil, fmt.Errorf("failed to get sitemap: %w", err)
@@ -42,6 +47,7 @@ func Full(sitemapReader io.Reader) (io.Reader, error) {
 	go func() {
 		for _, s := range sitemaps {
 			for _, u := range s.URLs {
+				time.Sleep(sleepDuration)
 				r, err := http.Get(u.Loc)
 				if err != nil {
 					panic(fmt.Errorf("failed to get page: %w", err))
