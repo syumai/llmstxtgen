@@ -6,7 +6,7 @@
 ## Installation
 
 ```sh
-go install github.com/syumai/llmstxtgen@latest
+go install github.com/syumai/llmstxtgen/cmd/llmstxtgen@latest
 ```
 
 ## Supported Modes
