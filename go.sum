@@ -1,0 +1,8 @@
+github.com/mackee/go-readability v0.3.1 h1:DUwcwlhNLPtrBkGyJPcKp51oOKBvZvvMDPPFFLUIcKc=
+github.com/mackee/go-readability v0.3.1/go.mod h1:lfyLr0PJ+fQ+z6r6IBrexFxP4AoVsaDJAGvMcoJ4UAM=
+github.com/snabb/diagio v1.0.4 h1:XnlKoBarZWiAEnNBYE5t1nbvJhdaoTaW7IBzu0R4AqM=
+github.com/snabb/diagio v1.0.4/go.mod h1:Y+Pja4UJrskCOKaLxOfa8b8wYSVb0JWpR4YFNHuzjDI=
+github.com/snabb/sitemap v1.0.4 h1:BC6cPW5jXLsKWtlYQKD2s1W58CarvNzqOmdl680uQPw=
+github.com/snabb/sitemap v1.0.4/go.mod h1:815/fxQQ8Tt7Eqwe8Lcat4ax73zuHyPxWBZySnbaxkc=
+golang.org/x/net v0.39.0 h1:ZCu7HMWDxpXpaiKdhzIfaltL9Lp31x/3fCP11bc6/fY=
+golang.org/x/net v0.39.0/go.mod h1:X7NRbYVEA+ewNkCNyJ513WmMdQ3BineSwVtN2zD/d+E=
